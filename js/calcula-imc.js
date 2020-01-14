@@ -3,7 +3,7 @@
 var titulo = document.querySelector(".titulo");
 titulo.textContent = "Sistema de Nutrição (alterado via js)";
 
-var pacientes = document.querySelectorAll(".paciente") ;
+var pacientes = document.querySelectorAll(".paciente");
 
 for (var i = 0; i < pacientes.length; i++) {
 	var paciente = pacientes[i];
@@ -17,7 +17,7 @@ for (var i = 0; i < pacientes.length; i++) {
 	var pesoEhValido = validaPeso(peso);
 	var alturaEhValido = validaAltura(altura);
 
-	if(!pesoEhValido){
+	if (!pesoEhValido) {
 		pesoEhValido = false;
 		tdImc.textContent = "peso inválido";
 
@@ -26,34 +26,34 @@ for (var i = 0; i < pacientes.length; i++) {
 		paciente.classList.add("paciente-invalido");
 	}
 
-	if(!alturaEhValido){
-	  alturaEhValido = false;
-		tdImc.textContent ="altura inválido";
+	if (!alturaEhValido) {
+		alturaEhValido = false;
+		tdImc.textContent = "altura inválido";
 		paciente.classList.add("paciente-invalido");
 	}
 
 	// se os dois são válidos
 	if (alturaEhValido && pesoEhValido) {
-			tdImc.textContent = calculaIMC(peso, altura);
+		tdImc.textContent = calculaIMC(peso, altura);
 	}
 }
 
-function calculaIMC(peso, altura){
+function calculaIMC(peso, altura) {
 	var imc = peso / (altura * altura);
 	return imc.toFixed(2);
 }
 
-function validaPeso(peso){
+function validaPeso(peso) {
 	if (peso >= 0 && peso <= 600)
 		return true;
 	else
 		return false;
 }
 
-function validaAltura(altura){
+function validaAltura(altura) {
 	if (altura >= 0 && altura <= 3.0) {
 		return true;
-	}else {
+	} else {
 		return false;
 	}
 }
